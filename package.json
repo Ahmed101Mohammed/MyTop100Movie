@@ -1,0 +1,25 @@
+{
+  "name": "mytop100movies",
+  "version": "1.0.0",
+  "description": "App lets the user to add his best movies and rate them.",
+  "main": "index.js",
+  "scripts": {
+    "test": "nodemon index.js"
+  },
+  "keywords": [
+    "top100",
+    "movies",
+    "moviesList"
+  ],
+  "author": "Ahmed Al3adl",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.20.0",
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.1",
+    "express": "^4.18.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.19"
+  }
+}
