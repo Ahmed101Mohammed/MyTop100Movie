@@ -7,7 +7,7 @@ const bodyParser = require('body-parser');
 const app = express();
 
 // db:
-const mongoDB = require('./model/MongoDB');
+const mongoDB = require('./database/MongoDB');
 // routing 
 app.use('/',require('./routers/homeRouter'))
 
