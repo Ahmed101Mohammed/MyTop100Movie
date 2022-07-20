@@ -8,7 +8,7 @@ const UserSchema = mongoose.Schema(
         },
         pwd:{
             type: String,
-            require: true
+            required: true
         },
         myList:{
             type:Array,

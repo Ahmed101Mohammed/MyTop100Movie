@@ -20,7 +20,7 @@ app.use(bodyParser.json());
 app.use(express.urlencoded({extended:false}));
 app.use(bodyParser.urlencoded({extended:false}));
 app.use('/',express.static('public'));
-
+app.use('/register',require('./routers/registerRout'));
 
 
 // listen to server:
