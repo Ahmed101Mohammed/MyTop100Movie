@@ -21,7 +21,7 @@ app.use(express.urlencoded({extended:false}));
 app.use(bodyParser.urlencoded({extended:false}));
 app.use('/',express.static('public'));
 app.use('/register',require('./routers/registerRout'));
-
+app.use('/auth',require('./routers/authRouter'));
 
 // listen to server:
 app.listen(3000,()=>{
