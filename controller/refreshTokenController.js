@@ -7,7 +7,7 @@ const handelRefreshToken = async(req,res)=>{
     // if the cookies is not exist  orjwt:
     if(!cookies || !cookies.jwt)
     {
-        return res.status(401);
+        return res.sendStatus(401);
     }
 
     // the refresh token:
@@ -21,7 +21,7 @@ const handelRefreshToken = async(req,res)=>{
         if(user === null)
         {
             
-            return res.status(403);
+            return res.sendStatus(403);
         }
         myUser = user;
         

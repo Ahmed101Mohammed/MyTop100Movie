@@ -22,6 +22,7 @@ app.use(cookieParser());
 app.use('/register',require('./routers/registerRout'));
 app.use('/auth',require('./routers/authRouter'));
 app.use('/refresh',require('./routers/refreshTokenRouter'));
+app.use('/logOut',require('./routers/logOutRouter'));
 // routes with verify JWT:
 app.use(vetifyJWT);
 app.use('/',require('./routers/homeRouter'))

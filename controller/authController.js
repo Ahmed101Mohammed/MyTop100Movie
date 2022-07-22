@@ -58,7 +58,7 @@ const handelAuth = async(req,res)=>{
         });
         
         res.cookie('jwt', refreshToken, {httpOnly:true,maxAge: 24 * 60 * 60 * 1000});
-        res.json(accessToken) // this accessToken should fronend developer to save it in claint side
+        res.json(accessToken); // this accessToken should fronend developer to save it in claint side
     }
     catch(e)
     {
