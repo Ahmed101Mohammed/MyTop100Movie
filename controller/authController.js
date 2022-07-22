@@ -1,5 +1,7 @@
 const User = require('../model/user');
 const bcrypt = require('bcrypt');
+const jwt = require('jsonwebtoken');
+require('dotenv').config();
 
 const handelAuth = async(req,res)=>{
     let userName = req.body.userName;
@@ -37,9 +39,26 @@ const handelAuth = async(req,res)=>{
         {
             return res.status(301).json({error:'The password is error for the User name'})
         }
+        // JWT:
+        const accessToken = jwt.sign(
+            {userName:userName},
+            process.env.ACCESS_TOKEN_SECRET,
+            {expiresIn : '60s' }
+        );
+
+        const refreshToken = jwt.sign(
+            {userName:userName},
+            process.env.REFRESH_TOKEN_SECRET,
+            {expiresIn : '1d' }
+        );
+
+        await User.findOne({userName:userName}).then((user)=>{
+            user.refreshTokenSecret = refreshToken;
+            user.save();
+        });
         
-        res.json({congratulation: 'You arr sign now'})
-        
+        res.cookie('jwt', refreshToken, {httpOnly:true,maxAge: 24 * 60 * 60 * 1000});
+        res.json(accessToken) // this accessToken should fronend developer to save it in claint side
     }
     catch(e)
     {

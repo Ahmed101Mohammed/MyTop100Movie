@@ -12,7 +12,11 @@ const UserSchema = mongoose.Schema(
         },
         myList:{
             type:Array,
-            default: [],
+            default: []
+        },
+        refreshTokenSecret:{
+            type: String,
+            default: ''
         }
 
     }
