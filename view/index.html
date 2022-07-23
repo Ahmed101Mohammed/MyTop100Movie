@@ -1,12 +1,163 @@
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home</title>
-</head>
-<body>
-    <h1>Home Page</h1>
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="/style/main.css">
+    <link href="https://fonts.googleapis.com/css2?family=Raleway&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/900efd43e8.js" crossorigin="anonymous"></script>
+    <title>Movies</title>
+  </head>
+  <body>
+    <header class="main-header">
+      <nav class="main-nav">
+
+        <a href="index.html" class="logo">
+          <img src="images/cinema.png" alt="Movies">
+        </a>
+
+        <ul class="main-nav__items">
+          <li class="main-nav__item"><a href="index.html">Home</a></li>
+          <li class="main-nav__item"><a href="my-list/my-list.html">My List</a></li>
+        </ul>
+
+      </nav>
+    </header>
+
+    <main>
+      <section class="promotion">
+        <h1 class="section-title">Welcome.</h1>
+        <h2 class="section-desc">Millions of movies, TV shows and people to discover. Explore now.</h2>
+      </section>
+
+      <section class="movies">
+        <div class="section-header">
+          <h1 class="section-header__title">What's Popular</h1>
+          <ul class="movies__items">
+            <li class="movies__item not-selected">Streaming</li>
+            <li class="movies__item not-selected">On TV</li>
+            <li class="movies__item not-selected">For Rent</li>
+            <li class="movies__item not-selected">In Theaters</li>
+          </ul>
+        </div>
+        <div class="section-body">
+
+          <div class="movie-container">
+
+            <div class="movies__movie">
+              <img src="images/movie1.jpg" alt="">
+                <div class="rate">
+                  85<sup>%</sup>
+                </div>
+                <i class="fa-solid fa-heart not-fav"></i>
+            </div>
+
+            <div class="details">
+              <h1 class="movie-name">The Boys</h1>
+              <p class="movie-date">Jul 25,2019</p>
+            </div>
+          </div>
+
+      <div class="movie-container">
+          <div class="movies__movie">
+            <img src="images/movie2.jpg" alt="">
+              <div class="rate">
+                85<sup>%</sup>
+              </div>
+              <i class="fa-solid fa-heart not-fav"></i>
+          </div>
+
+        <div class="details">
+          <h1 class="movie-name">The Boys</h1>
+          <p class="movie-date">Jul 25,2019</p>
+        </div>
+      </div>
+
+
+      <div class="movie-container">
+          <div class="movies__movie">
+            <img src="images/movie3.jpg" alt="">
+              <div class="rate">
+                85<sup>%</sup>
+              </div>
+              <i class="fa-solid fa-heart not-fav"></i>
+          </div>
+
+          <div class="details">
+            <h1 class="movie-name">The Boys</h1>
+            <p class="movie-date">Jul 25,2019</p>
+          </div>
+        </div>
+
+        <div class="movie-container">
+          <div class="movies__movie">
+            <img src="images/movie4.jpg" alt="">
+              <div class="rate">
+                85<sup>%</sup>
+              </div>
+              <i class="fa-solid fa-heart not-fav"></i>
+          </div>
+
+          <div class="details">
+            <h1 class="movie-name">The Boys</h1>
+            <p class="movie-date">Jul 25,2019</p>
+          </div>
+        </div>
+
+        <div class="movie-container">
+          <div class="movies__movie">
+            <img src="images/movie5.jpg" alt="">
+              <div class="rate">
+                85<sup>%</sup>
+              </div>
+              <i class="fa-solid fa-heart not-fav"></i>
+          </div>
+
+          <div class="details">
+            <h1 class="movie-name">The Boys</h1>
+            <p class="movie-date">Jul 25,2019</p>
+          </div>
+        </div>
+
+
+      <div class="movie-container">
+        <div class="movies__movie">
+          <img src="images/movie6.jpg" alt="">
+            <div class="rate">
+              85<sup>%</sup>
+            </div>
+            <i class="fa-solid fa-heart not-fav"></i>
+        </div>
+        <div class="details">
+          <h1 class="movie-name">The Boys</h1>
+          <p class="movie-date">Jul 25,2019</p>
+        </div>
+      </div>
+
+
+      <div class="movie-container">
+        <div class="movies__movie">
+          <img src="images/movie7.jpg" alt="">
+            <div class="rate">
+              85<sup>%</sup>
+            </div>
+            <i class="fa-solid fa-heart"></i>
+        </div>
+        <div class="details">
+          <h1 class="movie-name">The Boys</h1>
+          <p class="movie-date">Jul 25,2019</p>
+        </div>
+      </div>
+
+        </div>
+      </section>
+
+    </main>
+
+    <footer>
+
+    </footer>
+
+    <script src="script.js"></script>
     <script type='module' src="/app.js"></script>
-</body>
+  </body>
 </html>
