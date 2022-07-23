@@ -1,0 +1,171 @@
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  margin: 0;
+  font-family: 'Raleway', sans-serif;
+}
+
+.main-header {
+  padding: 1.2rem;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: #D9ED92;
+  font-weight: bold;
+  z-index: 100;
+}
+
+.logo {
+  margin: 0 4rem;
+}
+
+.logo img{
+  width: 1.5rem;
+  color: red;
+  vertical-align: middle;
+}
+
+.main-nav__items {
+  display: inline-block;
+  list-style: none;
+  margin: 0;
+  vertical-align: middle;
+  width: calc(100% - 14rem);
+}
+
+.main-nav__item {
+  display: inline-block;
+  margin: 0 1rem;
+}
+
+.main-nav__item a {
+  text-decoration: none;
+  color: #184E77;
+}
+
+.main-nav__item a:hover,
+.main-nav__item a:active {
+  color: #34A0A4;
+}
+
+main {
+  width: 75%;
+  margin: 3.7rem auto;
+}
+
+.promotion {
+  background: url("images/section1-back.jpg") bottom 10% left 10%/cover;
+  color: white;
+  padding: 3rem;
+  padding-top:7rem;
+  height: 45vh;
+}
+
+.promotion .section-title {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.movies {
+  padding: 2rem;
+}
+
+.movies .section-header__title {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.movies__items {
+  display: inline-block;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  vertical-align: middle;
+  border: 1px solid black;
+  border-radius: 40px;
+  margin: 1rem;
+}
+
+.movies__item {
+  font-weight: bold;
+  display: inline-block;
+  padding: 0.5rem;
+  cursor: pointer;
+}
+
+.movies .not-selected:hover {
+  background: #daedd6;
+  border-radius: 40px;
+}
+
+.movies .selected {
+  background: #99D98C;
+  border-radius: 40px;
+}
+
+.movies .section-body {
+  text-align: center;
+}
+
+.movie-container {
+  display: inline-block;
+  width: 10rem;
+  overflow: hidden;
+}
+
+.movies__movie {
+  position: relative;
+  display: inline-block;
+  margin: 1.2rem;
+}
+
+.movies__movie img {
+  width: 7.8rem;
+  border-radius: 1rem;
+}
+
+.movies__movie .rate {
+  position: absolute;
+  text-align: center;
+  font-size: 0.8rem;
+  color: white;
+  font-weight: bold;
+  padding: 3px 0;
+  bottom: -5px;
+  left: 5px;
+  width: 2rem;
+  height: 2rem;
+  background: #52B69A;
+  border: 1px solid #B5E48C;
+  border-radius: 50%;
+}
+
+.fa-heart {
+  position: absolute;
+  top:6px;
+  right:6px;
+  font-size: 1.4rem;
+  color: white;
+  cursor: pointer;
+}
+
+.not-fav:hover {
+  color: #f3f1f1;
+}
+
+.favourite {
+  color: red;
+}
+
+.favourite:hover {
+  color: #ff3054;
+}
+
+.details {
+}
