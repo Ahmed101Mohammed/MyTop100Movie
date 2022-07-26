@@ -13,6 +13,29 @@ const getMovies = async(url,path,key)=>{
     }
 }
 
+// post movie Data
+const post = async(url,data)=>{
+    const res = await fetch(url,{
+        method:'POST',
+        credentials:'same-origin',
+        headers:{'Content-Type': 'application/json',},
+        body: JSON.stringify(data),
+    });
+    
+    try{
+        const newData = await response.json();
+        console.log(newData);
+        return newData;
+    }
+    catch(e)
+    {
+        console.error('Error Post',e);
+    }
+}
+// post movie data to /love url
+const postLovelyMovie = (data)=>{
+    post('/love',data);
+}
 //The url of TMDB:
 let url = 'https://api.themoviedb.org/3';
 
@@ -95,13 +118,13 @@ const genarateMovies = (data)=>{
     for(let i of data)
     {
         let item = `
-                <div id=${i._id} class="movie-container">
+                <div class="movie-container">
                     <div class="movies__movie">
                         <img src="${httpStart+i.poster_path}" alt="${i.title}">
                         <div class="rate">
                             ${i.vote_average}<sup>%</sup>
                         </div>
-                        <i class="fa-solid fa-heart not-fav"></i>
+                        <i id=${i._id} class="fa-solid fa-heart not-fav"></i>
                     </div>
                     <div class="details">
                         <h1 class="movie-name">${i.title}</h1>
@@ -114,24 +137,44 @@ const genarateMovies = (data)=>{
     };
 
     movieContainer.innerHTML = content;
-    addHeart();
+    addHeart(data);
     
 }
 
 // Add heart events:
-const addHeart = ()=>{
+const addHeart = (d)=>{
     var heartIcons = document.querySelectorAll('.fa-heart');
 
     for (let i=0; i<heartIcons.length; i++){
     heartIcons[i].addEventListener('click', function(){
+        let data = d;
+        
         if (heartIcons[i].classList.contains('favourite')) {
             heartIcons[i].classList.remove('favourite');
             heartIcons[i].classList.add('not-fav');
+            let movie = searchMovie(data,heartIcons[i].id);
+            
         } else {
             heartIcons[i].classList.add('favourite');
             heartIcons[i].classList.remove('not-fav');
+            let movie = searchMovie(data,heartIcons[i].id);
+            postLovelyMovie(movie);
+            console.log(movie);
+            console.log(movie);
+            
     }});
     }
 } 
 
+// search about movie
+let searchMovie = (movieList,id)=>{
+    
+    for(let i of movieList)
+    {
+        if(i._id === Number(id))
+        {
+            return i;
+        }
+    }
+}
 

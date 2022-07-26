@@ -26,7 +26,7 @@ app.use('/logOut',require('./routers/logOutRouter'));
 app.use('/',require('./routers/homeRouter'))
 // routes with verify JWT:
 app.use(vetifyJWT);
-
+app.use('/love',require('./routers/heartRouter'));
 
 // listen to server:
 app.listen(3000,()=>{
