@@ -1,0 +1,70 @@
+main {
+  padding-top: 1rem;
+}
+
+.signup-title {
+  font-size: 1.8rem;
+  text-align: center;
+  color: #184E77;
+}
+
+.signup-form {
+  font-weight: bold;
+  padding: 1.3rem;
+  margin: auto;
+  width: 25rem;
+}
+
+
+.signup-form label,
+.signup-form input,
+.signup-form select {
+  width: 100%;
+  margin-top: 1.2rem;
+  display: block;
+}
+
+.signup-form input[type*="check"],
+.signup-form input[type*="check"] + label {
+  display: inline-block;
+  width: auto;
+  vertical-align: middle;
+}
+
+.signup-form select,
+.signup-form input:not([type="checkbox"]) {
+  padding: 0.6rem 0.5rem;
+  border: 1px solid #ccc;
+  font: inherit;
+}
+
+.signup-form select:focus,
+.signup-form input:focus {
+  outline: none;
+  border-color: #fade21;
+  background: #fff4bc;
+}
+
+.signup-form input[type="checkbox"] {
+  appearance: none;
+  border: 1px solid #ccc;
+  background: white;
+  width: 1rem;
+  height: 1rem;
+  border-radius: 50%;
+}
+
+.signup-form input[type="checkbox"]:checked {
+  border-color: #fade21;
+  background: #fff4bc;
+}
+
+.signup-form button[type$="mIt" i] {
+  display: block;
+  margin-top: 1.2rem;
+}
+
+.signup-form :invalid {
+  border-color: red !important;
+  background: lightpink;
+}

@@ -1,0 +1,85 @@
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../public/style/main.css">
+    <link rel="stylesheet" href="../public/style/sign-up.css">
+    <link href="https://fonts.googleapis.com/css2?family=Raleway&display=swap" rel="stylesheet">
+    <title>SignUp</title>
+  </head>
+  <body>
+    <div class="backdrop close"></div>
+
+    <div class="login-box close">
+      <form class="login-form" action="index.html" method="post">
+        <div class="email">
+          <label for="email">Email: </label>
+          <input type="email" id="email" value="" required>
+        </div>
+
+        <div class="password">
+          <label for="password">Password: </label>
+          <input type="password" id="password" value="" required>
+        </div>
+
+        <button type="submit" class="button login-button">Login</button>
+        <p>New to site? let's <a href="sign-up.html">Sign Up</a></p>
+
+      </form>
+    </div>
+
+    <header class="main-header">
+      <nav class="main-nav">
+
+        <a href="index.html" class="logo">
+          <img src="../public/images/cinema.png" alt="Movies">
+        </a>
+
+        <ul class="main-nav__items">
+          <li class="main-nav__item"><a href="index.html">Home</a></li>
+          <li class="main-nav__item"><a href="my-list/my-list.html">My List</a></li>
+        </ul>
+
+        <ul class="main-nav__enter">
+          <li class="main-nav__enter__login">Login</li>
+          <li class="main-nav__enter__signup">Sign Up</li>
+        </ul>
+
+      </nav>
+    </header>
+
+    <main>
+      <h1 class="signup-title">Join Us Now!</h1>
+      <form class="signup-form" action="index.html" method="post">
+        <label for="title">Titel</label>
+        <select id="title">
+          <option value="mr">Mr.</option>
+          <option value="ms">Ms.</option>
+        </select>
+        <label for="first-name">Firt Name</label>
+        <input type="text" id="first-name" required>
+        <label for="last-name">Last Name</label>
+        <input type="text" id="last-name" required>
+        <label for="email">E-Mail</label>
+        <input type="email" id="email" required>
+        <label for="password">Password</label>
+        <input type="password" id="password" required>
+        <input type="checkbox" id="agree-terms" required>
+        <label for="agree-terms">
+          Agree to <a href="#">Terms &amp; Conditions</a>
+        </label>
+        <button type="submit" class="button">Sign Up</button>
+      </form>
+    </main>
+
+    <footer class="main-footer">
+      <ul class="footer__items">
+        <li class="footer__item"><a>Support</a></li>
+        <li class="footer__item"><a>Contact Us</a></li>
+      </ul>
+    </footer>
+
+    <script src="../public/script.js"></script>
+    <script type='module' src="/app.js"></script>
+  </body>
+</html>
