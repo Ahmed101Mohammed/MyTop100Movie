@@ -54,6 +54,10 @@ const clearData = (data)=>{
             id++;
         }
     }
+    if (moviesData.length > 180)
+    {
+        genarateMovies(moviesData);
+    }  
     console.log(moviesData);
 }
 
@@ -78,4 +82,53 @@ const getAll = (url,discoversLinks,key)=>{
 }
 
 getAll(url,discoversLinks,key);
+
+// Generate Movies
+const genarateMovies = (data)=>{
+    let httpStart = 'https://image.tmdb.org/t/p/w500';
+    let movieContainer = document.querySelector('.section-body');
+    
+    let content = '';
+        
+    for(let i of data)
+    {
+        let item = `
+                <div class="movie-container">
+                    <div class="movies__movie">
+                        <img src="${httpStart+i.poster_path}" alt="${i.title}">
+                        <div class="rate">
+                            ${i.vote_average}<sup>%</sup>
+                        </div>
+                        <i class="fa-solid fa-heart not-fav"></i>
+                    </div>
+                    <div class="details">
+                        <h1 class="movie-name">${i.title}</h1>
+                        <p class="movie-date">Jul 25,2019</p>
+                    </div>
+                </div>
+            `;
+        content += item;
+        
+    };
+
+    movieContainer.innerHTML = content;
+    addHeart();
+    
+}
+
+// Add heart events:
+const addHeart = ()=>{
+    var heartIcons = document.querySelectorAll('.fa-heart');
+
+    for (let i=0; i<heartIcons.length; i++){
+    heartIcons[i].addEventListener('click', function(){
+        if (heartIcons[i].classList.contains('favourite')) {
+            heartIcons[i].classList.remove('favourite');
+            heartIcons[i].classList.add('not-fav');
+        } else {
+            heartIcons[i].classList.add('favourite');
+            heartIcons[i].classList.remove('not-fav');
+    }});
+    }
+} 
 
