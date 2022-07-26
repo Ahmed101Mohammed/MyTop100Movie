@@ -36,25 +36,27 @@ let discoversLinks = [`/discover/movie?sort_by=popularity.desc`,
 
 // function to get the data that I want
 let moviesData = [];
+let id = 0;
 const clearData = (data)=>{
     
-    let id = 0;
+    
     for(let i of data.results)
     {
         let movie = {
             _id: id,
             title: i.original_title,
-            poster_path: i.poster_path,
+            poster_path: i.poster_path || "",
             vote_average: i.vote_average,
-            vote_count: i.vote_count
+            vote_count: i.vote_count,
+            date: i.release_date
         }
-        if(!search(movie,moviesData))
+        if(!search(movie,moviesData) && movie.poster_path !== '')
         {
             moviesData.push(movie);
             id++;
         }
     }
-    if (moviesData.length > 180)
+    if (moviesData.length > 170)
     {
         genarateMovies(moviesData);
     }  
@@ -93,7 +95,7 @@ const genarateMovies = (data)=>{
     for(let i of data)
     {
         let item = `
-                <div class="movie-container">
+                <div id=${i._id} class="movie-container">
                     <div class="movies__movie">
                         <img src="${httpStart+i.poster_path}" alt="${i.title}">
                         <div class="rate">
@@ -103,7 +105,7 @@ const genarateMovies = (data)=>{
                     </div>
                     <div class="details">
                         <h1 class="movie-name">${i.title}</h1>
-                        <p class="movie-date">Jul 25,2019</p>
+                        <p class="movie-date">${i.date}</p>
                     </div>
                 </div>
             `;
@@ -131,4 +133,5 @@ const addHeart = ()=>{
     }});
     }
 } 
+
 
