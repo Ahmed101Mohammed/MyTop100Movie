@@ -2,22 +2,49 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
-    <link rel="stylesheet" href="/style/main.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../public/style/main.css">
     <link href="https://fonts.googleapis.com/css2?family=Raleway&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/900efd43e8.js" crossorigin="anonymous"></script>
     <title>Movies</title>
   </head>
+
   <body>
+    <div class="backdrop close"></div>
+
+    <div class="login-box close">
+      <form class="login-form" action="index.html" method="post">
+        <div class="email">
+          <label for="email">Email: </label>
+          <input type="email" id="email" value="" required>
+        </div>
+
+        <div class="password">
+          <label for="password">Password: </label>
+          <input type="password" id="password" value="" required>
+        </div>
+
+        <button type="submit" class="button login-button">Login</button>
+        <p>New to site? let's <a href="sign-up.html">Sign Up</a></p>
+
+      </form>
+    </div>
+
     <header class="main-header">
       <nav class="main-nav">
 
         <a href="index.html" class="logo">
-          <img src="images/cinema.png" alt="Movies">
+          <img src="../public/images/cinema.png" alt="Movies">
         </a>
 
         <ul class="main-nav__items">
-          <li class="main-nav__item"><a href="/home">Home</a></li>
+          <li class="main-nav__item"><a href="index.html">Home</a></li>
           <li class="main-nav__item"><a href="my-list/my-list.html">My List</a></li>
+        </ul>
+
+        <ul class="main-nav__enter">
+          <li class="main-nav__enter__login"><a href="#">Login</a></li>
+          <li class="main-nav__enter__signup"><a href="sign-up.html">Sign Up</a></li>
         </ul>
 
       </nav>
@@ -44,7 +71,7 @@
           <div class="movie-container">
 
             <div class="movies__movie">
-              <img src="images/movie1.jpg" alt="">
+              <img src="../public/images/movie1.jpg" alt="">
                 <div class="rate">
                   85<sup>%</sup>
                 </div>
@@ -59,7 +86,7 @@
 
       <div class="movie-container">
           <div class="movies__movie">
-            <img src="images/movie2.jpg" alt="">
+            <img src="../public/images/movie2.jpg" alt="">
               <div class="rate">
                 85<sup>%</sup>
               </div>
@@ -75,7 +102,7 @@
 
       <div class="movie-container">
           <div class="movies__movie">
-            <img src="images/movie3.jpg" alt="">
+            <img src="../public/images/movie3.jpg" alt="">
               <div class="rate">
                 85<sup>%</sup>
               </div>
@@ -90,7 +117,7 @@
 
         <div class="movie-container">
           <div class="movies__movie">
-            <img src="images/movie4.jpg" alt="">
+            <img src="../public/images/movie4.jpg" alt="">
               <div class="rate">
                 85<sup>%</sup>
               </div>
@@ -105,7 +132,7 @@
 
         <div class="movie-container">
           <div class="movies__movie">
-            <img src="images/movie5.jpg" alt="">
+            <img src="../public/images/movie5.jpg" alt="">
               <div class="rate">
                 85<sup>%</sup>
               </div>
@@ -121,7 +148,7 @@
 
       <div class="movie-container">
         <div class="movies__movie">
-          <img src="images/movie6.jpg" alt="">
+          <img src="../public/images/movie6.jpg" alt="">
             <div class="rate">
               85<sup>%</sup>
             </div>
@@ -136,11 +163,11 @@
 
       <div class="movie-container">
         <div class="movies__movie">
-          <img src="images/movie7.jpg" alt="">
+          <img src="../public/images/movie7.jpg" alt="">
             <div class="rate">
               85<sup>%</sup>
             </div>
-            <i class="fa-solid fa-heart"></i>
+            <i class="fa-solid fa-heart not-fav"></i>
         </div>
         <div class="details">
           <h1 class="movie-name">The Boys</h1>
@@ -153,10 +180,14 @@
 
     </main>
 
-    <footer>
-
+    <footer class="main-footer">
+      <ul class="footer__items">
+        <li class="footer__item"><a>Support</a></li>
+        <li class="footer__item"><a>Contact Us</a></li>
+      </ul>
     </footer>
-    
+
+    <script src="../public/script.js"></script>
     <script type='module' src="/app.js"></script>
   </body>
 </html>
