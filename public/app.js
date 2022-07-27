@@ -1,41 +1,4 @@
-// getMovies fetching api:
-const getMovies = async(url,path,key)=>{
-    let data = await fetch(url+path+key);
 
-    try{
-        let res = await data.json();
-        clearData(res)
-        return res;
-    }
-    catch(e)
-    {
-        console.error('fetching error',e);
-    }
-}
-
-// post movie Data
-const post = async(url,data)=>{
-    const res = await fetch(url,{
-        method:'POST',
-        credentials:'same-origin',
-        headers:{'Content-Type': 'application/json',},
-        body: JSON.stringify(data),
-    });
-    
-    try{
-        const newData = await response.json();
-        console.log(newData);
-        return newData;
-    }
-    catch(e)
-    {
-        console.error('Error Post',e);
-    }
-}
-// post movie data to /love url
-const postLovelyMovie = (data)=>{
-    post('/love',data);
-}
 //The url of TMDB:
 let url = 'https://api.themoviedb.org/3';
 

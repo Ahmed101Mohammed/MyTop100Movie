@@ -240,6 +240,10 @@ main {
   color: #f3f1f1;
 }
 
+.details h1{
+  height: 28px;
+  overflow: hidden;
+}
 .favourite {
   color: red;
 }

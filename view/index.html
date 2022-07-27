@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../public/style/main.css">
+    <link rel="stylesheet" href="/style/main.css">
     <link href="https://fonts.googleapis.com/css2?family=Raleway&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/900efd43e8.js" crossorigin="anonymous"></script>
     <title>Movies</title>
@@ -13,10 +13,10 @@
     <div class="backdrop close"></div>
 
     <div class="login-box close">
-      <form class="login-form" action="index.html" method="post">
+      <form class="login-form">
         <div class="email">
           <label for="email">Email: </label>
-          <input type="email" id="email" value="" required>
+          <input type="text" id="email" value="" required>
         </div>
 
         <div class="password">
@@ -24,7 +24,7 @@
           <input type="password" id="password" value="" required>
         </div>
 
-        <button type="submit" class="button login-button">Login</button>
+        <button class="button login-button">Login</button>
         <p>New to site? let's <a href="sign-up.html">Sign Up</a></p>
 
       </form>
@@ -34,7 +34,7 @@
       <nav class="main-nav">
 
         <a href="index.html" class="logo">
-          <img src="../public/images/cinema.png" alt="Movies">
+          <img src="/images/cinema.png" alt="Movies">
         </a>
 
         <ul class="main-nav__items">
@@ -71,7 +71,7 @@
           <div class="movie-container">
 
             <div class="movies__movie">
-              <img src="../public/images/movie1.jpg" alt="">
+              <img src="/images/movie1.jpg" alt="">
                 <div class="rate">
                   85<sup>%</sup>
                 </div>
@@ -86,7 +86,7 @@
 
       <div class="movie-container">
           <div class="movies__movie">
-            <img src="../public/images/movie2.jpg" alt="">
+            <img src="/images/movie2.jpg" alt="">
               <div class="rate">
                 85<sup>%</sup>
               </div>
@@ -102,7 +102,7 @@
 
       <div class="movie-container">
           <div class="movies__movie">
-            <img src="../public/images/movie3.jpg" alt="">
+            <img src="/images/movie3.jpg" alt="">
               <div class="rate">
                 85<sup>%</sup>
               </div>
@@ -117,7 +117,7 @@
 
         <div class="movie-container">
           <div class="movies__movie">
-            <img src="../public/images/movie4.jpg" alt="">
+            <img src="/images/movie4.jpg" alt="">
               <div class="rate">
                 85<sup>%</sup>
               </div>
@@ -132,7 +132,7 @@
 
         <div class="movie-container">
           <div class="movies__movie">
-            <img src="../public/images/movie5.jpg" alt="">
+            <img src="/images/movie5.jpg" alt="">
               <div class="rate">
                 85<sup>%</sup>
               </div>
@@ -148,7 +148,7 @@
 
       <div class="movie-container">
         <div class="movies__movie">
-          <img src="../public/images/movie6.jpg" alt="">
+          <img src="/images/movie6.jpg" alt="">
             <div class="rate">
               85<sup>%</sup>
             </div>
@@ -163,7 +163,7 @@
 
       <div class="movie-container">
         <div class="movies__movie">
-          <img src="../public/images/movie7.jpg" alt="">
+          <img src="/images/movie7.jpg" alt="">
             <div class="rate">
               85<sup>%</sup>
             </div>
@@ -187,7 +187,8 @@
       </ul>
     </footer>
 
-    <script src="../public/script.js"></script>
-    <script type='module' src="/app.js"></script>
+   <script src="/requests.js"></script>
+    <script  src="/app.js"></script>
+    <script src="/script.js"></script>
   </body>
 </html>

@@ -58,17 +58,11 @@ const handelAuth = async(req,res)=>{
         });
         
         res.cookie('jwt', refreshToken, {httpOnly:true,maxAge: 24 * 60 * 60 * 1000});
-        console.log('d');
-        //req.headers = {Authorization: `Bearer ${accessToken}`}
-        res.header('Authorization', 'Bearer '+ accessToken);
-        const authHeader = req.headers['authorization'];
-        console.log({authHeader});
-        console.log('f');
         res.json(accessToken); // this accessToken should fronend developer to save it in claint side
     }
     catch(e)
     {
-        res.status(500).json({error:e});
+        res.sendStatus(500);
     }
 
 }

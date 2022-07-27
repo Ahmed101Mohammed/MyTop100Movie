@@ -5,7 +5,7 @@ const addToMyListController = async(req,res)=>{
     
     const cookies = req.cookies;
     const movie = req.body;
-    console.log({movie})
+    
     if(!cookies && !cookies.jwt)
     {
         return res.sendStatus(401);
@@ -17,7 +17,7 @@ const addToMyListController = async(req,res)=>{
         if(!user){
             res.setStatus(404);
         }
-        console.log('1',{movie})
+        
         user.myList.push(movie);
         user.save();
     })

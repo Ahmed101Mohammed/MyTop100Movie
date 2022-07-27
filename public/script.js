@@ -5,44 +5,20 @@ var loginForm = document.querySelector('.login-box');
 var loginButton = document.querySelector('.login-button');
 var loginNav = document.querySelector('.main-nav__enter__login');
 
-for (let i=0; i<heartIcons.length; i++){
-  heartIcons[i].addEventListener('click', function(){
-    if (heartIcons[i].classList.contains('favourite')) {
-        heartIcons[i].classList.remove('favourite');
-        heartIcons[i].classList.add('not-fav');
-    } else {
-        heartIcons[i].classList.add('favourite');
-        heartIcons[i].classList.remove('not-fav');
-  }});
-}
-
-for (let i=0; i<moviesItems.length; i++){
-  moviesItems[i].addEventListener('click', function(){
-    if (!moviesItems[i].classList.contains('selected')) {
-        for (let j=0; j<moviesItems.length; j++){
-          if (moviesItems[j].classList.contains('selected')){
-            moviesItems[j].classList.remove('selected');
-            moviesItems[j].classList.add('not-selected');
-            break;
-          };
-        }
-        moviesItems[i].classList.add('selected');
-        moviesItems[i].classList.remove('not-selected');
-  }});
-}
-
-backDrop.addEventListener('click', function(){
-  if (loginForm) {
-    closeLoginForm();
-  }
-  closeBackdrop();
-});
 
 loginButton.addEventListener('click', function(){
-  closeLoginForm();
-  closeBackdrop();
+  let userNameInput = document.querySelector('#email');
+  let passwordInput = document.querySelector('#password');
+  let userName = userNameInput.value;
+  let pwd = passwordInput.value;
+  auth({userName,pwd})
+  //closeLoginForm();
+  //closeBackdrop();
 });
-
+backDrop.addEventListener('click',()=>{
+  closeBackdrop()
+  closeLoginForm()
+})
 loginNav.addEventListener('click', function(){
   openBackdrop();
   openLoginForm();
