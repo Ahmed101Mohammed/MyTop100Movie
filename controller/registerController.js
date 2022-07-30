@@ -1,5 +1,7 @@
 const User = require('../model/user');
 const bcrypt = require('bcrypt');
+const path = require('path');
+
 
 const handelRegister = async(req,res)=>{
     let userName = req.body.userName;
@@ -42,4 +44,9 @@ const handelRegister = async(req,res)=>{
 
 }
 
-module.exports = handelRegister;
+const getRegisterPage = (req,res)=>{
+    let pagePath = path.join(__dirname,'..','view','sign-up.html');
+    res.status(200).sendFile(pagePath);
+}
+
+module.exports = {handelRegister,getRegisterPage};
