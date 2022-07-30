@@ -2,7 +2,7 @@ const User = require('../model/user');
 
 
 const addToMyListController = async(req,res)=>{
-    
+    console.log('You are in add to list controller')
     const cookies = req.cookies;
     const movie = req.body;
     

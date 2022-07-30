@@ -50,7 +50,9 @@ const handelRefreshToken = async(req,res)=>{
                
             }
         );
-        res.json({accessToken})
+        console.log('access Tocken is send',accessToken)
+        res.json({access:accessToken})
+        
     }
     catch(e)
     {

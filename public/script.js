@@ -5,7 +5,6 @@ var loginForm = document.querySelector('.login-box');
 var loginButton = document.querySelector('.login-button');
 var loginNav = document.querySelector('.main-nav__enter__login');
 
-
 loginButton.addEventListener('click', function(){
   let userNameInput = document.querySelector('#email');
   let passwordInput = document.querySelector('#password');
