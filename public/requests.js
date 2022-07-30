@@ -42,7 +42,13 @@ const auth = (data)=>{
         header.append('Authorization', 'Bearer ' + d);
     })
   }
-// 
+
+// create a new registerL:
+const register =  (data)=>{
+    post('/register',data)
+}
+
+// refresh token
 const getRefreshTocken = async()=>{
     let d = await fetch('/refresh').then(async(d)=>{
         try{
@@ -114,3 +120,4 @@ const cpost = async(url,data,h)=>{
 const postLovelyMovie = (data)=>{
     cpost('/love',data,header);
 }
+
