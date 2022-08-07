@@ -1,5 +1,6 @@
 let user = require('../model/user');
 
+
 const getUserMovies = async (req,res)=>{
     let cookies = req.cookies;
 
@@ -29,6 +30,7 @@ const getUserMovies = async (req,res)=>{
         {
             console.log('yeah yes',userMovies)
             res.status(200).json({'data':userMovies});
+            
         }
     }
     catch(e)
