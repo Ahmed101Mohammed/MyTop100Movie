@@ -3,6 +3,7 @@ const express = require('express');
 const cors = require('cors');
 const bodyParser = require('body-parser');
 const vetifyJWT = require('./middleware/verifyJWT');
+const readReq = require('./middleware/readRequests');
 const cookieParser = require('cookie-parser');
 // express App:
 const app = express();
@@ -20,6 +21,7 @@ app.use('/',express.static('public'));
 app.use(cookieParser());
 app.disable('x-powered-by');
 // routing 
+app.use(readReq);
 app.use('/register',require('./routers/registerRout'));
 app.use('/auth',require('./routers/authRouter'));
 app.use('/refresh',require('./routers/refreshTokenRouter'));
@@ -30,7 +32,7 @@ app.use('/home',require('./routers/homeRouter'))
 
 app.use(vetifyJWT);
 app.use('/love',require('./routers/heartRouter'));
-app.use('/myls',require('./routers/getUserMovies'));
+app.use('/my',require('./routers/getUserMovies'));
 
 // listen to server:
 app.listen(3000,()=>{

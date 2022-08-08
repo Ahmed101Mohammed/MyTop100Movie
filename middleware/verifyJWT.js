@@ -2,6 +2,7 @@ const jwt = require('jsonwebtoken');
 require('dotenv').config();
 
 const verifyJWT = (req,res,next)=>{
+    console.log('Hackona Mata')
     console.log(req.path);
     const authHeader = req.headers['authorization'];
     if(!authHeader){

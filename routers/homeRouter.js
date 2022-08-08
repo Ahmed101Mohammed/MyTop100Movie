@@ -10,5 +10,4 @@ router.route('/|home')
             
        
     });
-
 module.exports = router;

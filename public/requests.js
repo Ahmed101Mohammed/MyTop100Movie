@@ -22,20 +22,31 @@ const getMovies = async(url,path,key)=>{
     }
 }
 // get user data
-const getUserData = async(path)=>{
+let cntr = 0;
+const getUserData = async(path,h)=>{
     console.log(path)
-    console.log(header.get('Authorization'))
+    console.log('A',header.get('Authorization'))
     console.log(header.get('Content-Type'))
-    let data = await fetch('/myls',{
-        method:'GET',
-        headers: header,
+    let data = await fetch('/my',{
+        headers:h,
     });
    
     console.log('getUserData',{data});
-
+    if(data.status === 301)
+    {
+        cntr++;
+        if(cntr === 2)
+        {
+            console.log({cntr})
+            return;
+        }
+        await getRefreshTocken();
+        getUserData('mylst',header);
+    }
     try{
         let res = await data.json();
         console.log(res);
+        genarateMovies(res.userMovies);
     }
     catch(e)
     {
@@ -66,6 +77,7 @@ const post = async(url,data)=>{
 const auth = (data)=>{
     let accessT = post('/auth',data);
     accessT.then((d)=>{
+        header.delete('Authorization');
         header.append('Authorization', 'Bearer ' + d);
         console.log(header.get('Authorization'));
         localStorage.clear();
