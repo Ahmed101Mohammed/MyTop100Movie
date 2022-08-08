@@ -15,7 +15,7 @@ const addToMyListController = async(req,res)=>{
     await User.findOne({refreshTokenSecret:refeshToken}).then((user)=>{
         
         if(!user){
-            res.setStatus(404);
+            res.sendStatus(404);
         }
         
         user.myList.push(movie);
@@ -23,6 +23,8 @@ const addToMyListController = async(req,res)=>{
     })
 
     try{
+        const authHeader = req.headers['authorization'];
+        console.log('/love',{authHeader});
         res.sendStatus(200);
 
     }

@@ -3,8 +3,8 @@ let user = require('../model/user');
 
 const getUserMovies = async (req,res)=>{
     let cookies = req.cookies;
-
-    if(!cookies && ! cookies.jwt)
+    console.log('I am in getUserMovies controller')
+    if(!cookies && !cookies.jwt)
     {
         return res.sendStatus(401);
     }
@@ -29,7 +29,7 @@ const getUserMovies = async (req,res)=>{
         else
         {
             console.log('yeah yes',userMovies)
-            res.status(200).json({'data':userMovies});
+            res.json({userMovies});
             
         }
     }

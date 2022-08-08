@@ -49,7 +49,7 @@ const handelAuth = async(req,res)=>{
         const refreshToken = jwt.sign(
             {userName:userName},
             process.env.REFRESH_TOKEN_SECRET,
-            {expiresIn : '120s' }
+            {expiresIn : '1d' }
         );
 
         await User.findOne({userName:userName}).then((user)=>{
@@ -57,7 +57,7 @@ const handelAuth = async(req,res)=>{
             user.save();
         });
         
-        res.cookie('jwt', refreshToken, {httpOnly:true,maxAge: 2 * 60 * 1000});
+        res.cookie('jwt', refreshToken, {httpOnly:true,maxAge: 24 * 60 * 60 * 1000});
         res.json(accessToken); // this accessToken should fronend developer to save it in claint side
     }
     catch(e)

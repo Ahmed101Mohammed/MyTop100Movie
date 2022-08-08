@@ -1,4 +1,11 @@
 let header = new Headers;
+let jwt = localStorage.getItem('jwt');
+console.log('#1:',localStorage);
+if(jwt !== null && header.get('Authorization') === null)
+{
+    header.append('Authorization',jwt);
+    console.log('#2:',localStorage);
+}
 header.append('Content-Type','application/json; charset=utf-8');
 // getMovies fetching api:
 const getMovies = async(url,path,key)=>{
@@ -14,7 +21,27 @@ const getMovies = async(url,path,key)=>{
         console.error('fetching error',e);
     }
 }
+// get user data
+const getUserData = async(path)=>{
+    console.log(path)
+    console.log(header.get('Authorization'))
+    console.log(header.get('Content-Type'))
+    let data = await fetch('/myls',{
+        method:'GET',
+        headers: header,
+    });
+   
+    console.log('getUserData',{data});
 
+    try{
+        let res = await data.json();
+        console.log(res);
+    }
+    catch(e)
+    {
+        console.error(e);
+    }
+}
 // post movie Data
 const post = async(url,data)=>{
     const res = await fetch(url,{
@@ -40,7 +67,12 @@ const auth = (data)=>{
     let accessT = post('/auth',data);
     accessT.then((d)=>{
         header.append('Authorization', 'Bearer ' + d);
+        console.log(header.get('Authorization'));
+        localStorage.clear();
+        localStorage.setItem('jwt','Bearer ' + d);
+        console.log('#3:',localStorage);
     })
+    
   }
 
 // create a new registerL:
@@ -58,6 +90,9 @@ const getRefreshTocken = async()=>{
             console.log('auth deleted')
             header.set('Authorization', 'Bearer ' + dataAccess.access);
             console.log('New Auth',header.get('Authorization'))
+            localStorage.clear();
+            localStorage.setItem('jwt','Bearer '+dataAccess.access);
+            console.log('#4:',localStorage);
             
         }
         catch(e)
@@ -102,9 +137,6 @@ const cpost = async(url,data,h)=>{
         
         console.log('newHeader:',header.get('Authorization'))  
         cpost(url,data,header);
-        
-    
-        
     }
 
     try{
@@ -118,6 +150,7 @@ const cpost = async(url,data,h)=>{
 }
 // post movie data to /love url
 const postLovelyMovie = (data)=>{
+    console.log(header.get('Authorization'));
     cpost('/love',data,header);
 }
 

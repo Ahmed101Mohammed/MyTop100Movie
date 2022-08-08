@@ -24,12 +24,13 @@ app.use('/register',require('./routers/registerRout'));
 app.use('/auth',require('./routers/authRouter'));
 app.use('/refresh',require('./routers/refreshTokenRouter'));
 app.use('/logOut',require('./routers/logOutRouter'));
-app.use('/home',require('./routers/homeRouter'))
 app.use('/mylistpage',require('./routers/myListPage'));
+app.use('/home',require('./routers/homeRouter'))
 // routes with verify JWT:
+
 app.use(vetifyJWT);
 app.use('/love',require('./routers/heartRouter'));
-app.use('/mylist',require('./routers/getUserMovies'));
+app.use('/myls',require('./routers/getUserMovies'));
 
 // listen to server:
 app.listen(3000,()=>{
