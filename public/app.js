@@ -117,7 +117,7 @@ const addHeart = (d)=>{
             let movie = searchMovie(data,heartIcons[i].id);
             console.log('delete Movie',movie);
             let complate = await DeleteMovie(movie);
-            if(!complate)
+            if(complate)
             {
                 return;
             }

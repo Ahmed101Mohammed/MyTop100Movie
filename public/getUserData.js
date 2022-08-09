@@ -1,4 +1,11 @@
-getUserData('/mylst',header);
+let respo = getUserData('/mylst',header);
+respo.then((d)=>{
+    if(d === 'User does not has any lovely movie.')
+    {
+        let movieContainer = document.querySelector('.section-body');
+        movieContainer.innerHTML='<p> You do not love any movie, You need to learn how to love.</p>';
+    }
+})
 let logOutB = document.querySelector('.logout');//out button
 // Generate Movies
 const genarateMovies = (data)=>{
@@ -45,7 +52,7 @@ const addHeart = (d)=>{
             let movie = searchMovie(data,heartIcons[i].id);
             console.log('delete Movie',movie);
             let complate = await DeleteMovie(movie);
-            if(!complate)
+            if(complate)
             {
                 return;
             }

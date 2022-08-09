@@ -11,12 +11,14 @@ const addToMyListController = async(req,res)=>{
     }
 
     let refeshToken = cookies.jwt;
+    let found = false;
     await User.findOne({refreshTokenSecret:refeshToken}).then((user)=>{
         
         if(!user){
-            res.sendStatus(404);
+           return res.sendStatus(404);
         }
-        
+
+        found = true;
         user.myList.push(movie);
         user.save();
     })
@@ -24,7 +26,10 @@ const addToMyListController = async(req,res)=>{
     try{
         const authHeader = req.headers['authorization'];
         console.log('/love',{authHeader});
-        res.sendStatus(200);
+        if(found)
+        {
+            res.sendStatus(200); 
+        }
 
     }
     catch(e)

@@ -49,7 +49,7 @@ const getUserData = async(path,h)=>{
         }
         else
         {
-            console.log(res.data);
+            return res.data;
         }
         
     }
@@ -80,7 +80,10 @@ const getUserDataAndColoring = async(path,h)=>{
     try{
         let res = await data.json();
         console.log(res);
-        addRed(res);
+        if(res.data === undefined)
+        {
+            addRed(res);
+        }
     }
     catch(e)
     {
@@ -172,7 +175,7 @@ const cpost = async(url,data,h)=>{
     });
     console.log('res',{res});
     let accesing = true;
-    if(res.status === 401)
+    if(res.status === 401 || res.status === 404)
     {
         // out put box of sign in login to login:
         console.log('you Should sign in')
@@ -201,7 +204,7 @@ const cpost = async(url,data,h)=>{
 const postLovelyMovie = async (data)=>{
     console.log(header.get('Authorization'));
     let notAuth = await cpost('/love',data,header);
-    
+    console.log(notAuth);
     if(notAuth === 'Not Auth')
     {
         return false;
