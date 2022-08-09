@@ -12,8 +12,8 @@ when you load the files do that:
 2 - type    **npm install**.
 3 - add a file with a name '.env'.
 4 - in the file, you should write that:
-    > - DB_ACCESS=***YourOwnVal***
-    > - ACCESS_TOKEN_SECRET=***YourOwnVal***
-    > - REFRESH_TOKEN_SECRET=***YourOwnVal***
+> - DB_ACCESS=***YourOwnVal***
+> - ACCESS_TOKEN_SECRET=***YourOwnVal***
+> - REFRESH_TOKEN_SECRET=***YourOwnVal***
 
 ### Note: the project has many front-end logical bugs.
