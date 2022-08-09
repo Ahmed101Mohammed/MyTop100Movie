@@ -120,7 +120,11 @@ const addHeart = (d)=>{
         } else {
             let movie = searchMovie(data,heartIcons[i].id);
             console.log(movie);
-            postLovelyMovie(movie);
+            let complete = postLovelyMovie(movie);
+            if(!complete)
+            {
+                return;
+            }
             heartIcons[i].classList.add('favourite');
             heartIcons[i].classList.remove('not-fav');
             

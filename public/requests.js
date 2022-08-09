@@ -144,6 +144,7 @@ const cpost = async(url,data,h)=>{
         // out put box of sign in login to login:
         console.log('you Should sign in')
         accesing = false;
+        return 'Not Auth'
     }
     
     if(res.status === 301 && accesing === true)
@@ -166,6 +167,11 @@ const cpost = async(url,data,h)=>{
 // post movie data to /love url
 const postLovelyMovie = (data)=>{
     console.log(header.get('Authorization'));
-    cpost('/love',data,header);
+    let notAuth = cpost('/love',data,header);
+    if(notAuth === 'Not Auth')
+    {
+        return false;
+    }
+    return true;
 }
 
