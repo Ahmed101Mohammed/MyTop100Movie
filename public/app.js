@@ -109,7 +109,7 @@ const addHeart = (d)=>{
     var heartIcons = document.querySelectorAll('.fa-heart');
 
     for (let i=0; i<heartIcons.length; i++){
-    heartIcons[i].addEventListener('click', function(){
+    heartIcons[i].addEventListener('click', async function(){
         let data = d;
         
         if (heartIcons[i].classList.contains('favourite')) {
@@ -120,7 +120,7 @@ const addHeart = (d)=>{
         } else {
             let movie = searchMovie(data,heartIcons[i].id);
             console.log(movie);
-            let complete = postLovelyMovie(movie);
+            let complete = await postLovelyMovie(movie);
             if(!complete)
             {
                 return;
@@ -132,7 +132,7 @@ const addHeart = (d)=>{
     }
 } 
 
-// search about movie
+// search about movie by id
 let searchMovie = (movieList,id)=>{
     
     for(let i of movieList)
@@ -144,3 +144,31 @@ let searchMovie = (movieList,id)=>{
     }
 }
 
+
+// add heart red color to user favoiret movies that already in his list:
+let addRed = (data)=>{
+    console.log({data})
+    let allMovies = document.querySelectorAll('.movie-container');
+    for(let movie of allMovies)
+    {
+        let title = movie.querySelector('.details').querySelector('.movie-name').textContent;
+        if(searchMovieTitle(data.userMovies,title))
+        {
+            let heart = movie.querySelector('.movies__movie').querySelector('i');
+            heart.classList.remove('not-fav');
+            heart.classList.add('favourite');
+        }
+    }
+}
+
+// search about movie by title:
+let searchMovieTitle = (movieList,title)=>{
+    for(let movie of movieList)
+    {
+        if(movie.title === title)
+        {
+            return true;
+        }
+    }
+    return false;
+}

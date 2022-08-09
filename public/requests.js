@@ -22,7 +22,6 @@ const getMovies = async(url,path,key)=>{
     }
 }
 // get user data
-let cntr = 0;
 const getUserData = async(path,h)=>{
     console.log(path);
     console.log('A',header.get('Authorization'));
@@ -36,12 +35,6 @@ const getUserData = async(path,h)=>{
     console.log('h1',header.get('Authorization'));
     if(data.status === 301)
     {
-        cntr++;
-        if(cntr === 2)
-        {
-            console.log({cntr})
-            return;
-        }
         await getRefreshTocken();
         console.log('h2',header.get('Authorization'));
         getUserData('mylst',header);
@@ -56,6 +49,36 @@ const getUserData = async(path,h)=>{
         console.error(e)
     }
 }
+
+// get user data to coloring his favourite movie in a home.
+const getUserDataAndColoring = async(path,h)=>{
+    console.log(path);
+    console.log('A',header.get('Authorization'));
+    console.log(header.get('Content-Type'));
+    
+    let data = await fetch(path,{
+        headers:h,
+    });
+   
+    console.log('getUserData',{data});
+    console.log('h1',header.get('Authorization'));
+    if(data.status === 301)
+    {
+        await getRefreshTocken();
+        console.log('h2',header.get('Authorization'));
+        getUserDataAndColoring('mylst',header);
+    }
+    try{
+        let res = await data.json();
+        console.log(res);
+        addRed(res);
+    }
+    catch(e)
+    {
+        console.error(e)
+    }
+}
+
 // post movie Data
 const post = async(url,data)=>{
     const res = await fetch(url,{
@@ -86,6 +109,7 @@ const auth = (data)=>{
         localStorage.clear();
         localStorage.setItem('jwt','Bearer ' + d);
         console.log('#3:',localStorage);
+        getUserDataAndColoring('/mylst',header)
     })
     
   }
@@ -165,13 +189,15 @@ const cpost = async(url,data,h)=>{
     }
 }
 // post movie data to /love url
-const postLovelyMovie = (data)=>{
+const postLovelyMovie = async (data)=>{
     console.log(header.get('Authorization'));
-    let notAuth = cpost('/love',data,header);
+    let notAuth = await cpost('/love',data,header);
+    
     if(notAuth === 'Not Auth')
     {
         return false;
     }
+
     return true;
 }
 
