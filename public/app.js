@@ -118,12 +118,11 @@ const addHeart = (d)=>{
             let movie = searchMovie(data,heartIcons[i].id);
             
         } else {
+            let movie = searchMovie(data,heartIcons[i].id);
+            console.log(movie);
+            postLovelyMovie(movie);
             heartIcons[i].classList.add('favourite');
             heartIcons[i].classList.remove('not-fav');
-            let movie = searchMovie(data,heartIcons[i].id);
-            postLovelyMovie(movie);
-            console.log(movie);
-            console.log(movie);
             
     }});
     }

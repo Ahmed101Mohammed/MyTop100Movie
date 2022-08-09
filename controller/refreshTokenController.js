@@ -45,7 +45,7 @@ const handelRefreshToken = async(req,res)=>{
                 accessToken = jwt.sign(
                     {userName:decoded.userName},
                     process.env.ACCESS_TOKEN_SECRET,
-                    {expiresIn:'60s'}
+                    {expiresIn:'300s'}
                 )
                
             }

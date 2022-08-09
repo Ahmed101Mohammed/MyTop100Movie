@@ -24,14 +24,16 @@ const getMovies = async(url,path,key)=>{
 // get user data
 let cntr = 0;
 const getUserData = async(path,h)=>{
-    console.log(path)
-    console.log('A',header.get('Authorization'))
-    console.log(header.get('Content-Type'))
-    let data = await fetch('/my',{
+    console.log(path);
+    console.log('A',header.get('Authorization'));
+    console.log(header.get('Content-Type'));
+    
+    let data = await fetch(path,{
         headers:h,
     });
    
     console.log('getUserData',{data});
+    console.log('h1',header.get('Authorization'));
     if(data.status === 301)
     {
         cntr++;
@@ -41,6 +43,7 @@ const getUserData = async(path,h)=>{
             return;
         }
         await getRefreshTocken();
+        console.log('h2',header.get('Authorization'));
         getUserData('mylst',header);
     }
     try{
@@ -50,7 +53,7 @@ const getUserData = async(path,h)=>{
     }
     catch(e)
     {
-        console.error(e);
+        console.error(e)
     }
 }
 // post movie Data

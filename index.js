@@ -12,6 +12,7 @@ const app = express();
 const mongoDB = require('./database/MongoDB');
 
 // app midleware(s):
+app.use(readReq);
 app.use(cors());
 app.use(express.json());
 app.use(bodyParser.json());
@@ -21,7 +22,6 @@ app.use('/',express.static('public'));
 app.use(cookieParser());
 app.disable('x-powered-by');
 // routing 
-app.use(readReq);
 app.use('/register',require('./routers/registerRout'));
 app.use('/auth',require('./routers/authRouter'));
 app.use('/refresh',require('./routers/refreshTokenRouter'));
@@ -32,7 +32,7 @@ app.use('/home',require('./routers/homeRouter'))
 
 app.use(vetifyJWT);
 app.use('/love',require('./routers/heartRouter'));
-app.use('/my',require('./routers/getUserMovies'));
+app.use('/mylst',require('./routers/getUserMovies'));
 
 // listen to server:
 app.listen(3000,()=>{

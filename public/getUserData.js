@@ -1,4 +1,4 @@
-getUserData('/mylist',header);
+getUserData('/mylst',header);
 
 // Generate Movies
 const genarateMovies = (data)=>{
