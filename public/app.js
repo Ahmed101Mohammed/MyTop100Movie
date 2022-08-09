@@ -113,10 +113,13 @@ const addHeart = (d)=>{
         let data = d;
         
         if (heartIcons[i].classList.contains('favourite')) {
+
+            let movie = searchMovie(data,heartIcons[i].id);
+            console.log('delete Movie',movie);
+            await DeleteMovie(movie);
             heartIcons[i].classList.remove('favourite');
             heartIcons[i].classList.add('not-fav');
-            let movie = searchMovie(data,heartIcons[i].id);
-            
+
         } else {
             let movie = searchMovie(data,heartIcons[i].id);
             console.log(movie);

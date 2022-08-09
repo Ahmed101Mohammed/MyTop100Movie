@@ -41,8 +41,17 @@ const getUserData = async(path,h)=>{
     }
     try{
         let res = await data.json();
+
         console.log(res);
-        genarateMovies(res.userMovies);
+        if(res.userMovies !== undefined)
+        {
+            genarateMovies(res.userMovies);
+        }
+        else
+        {
+            console.log(res.data);
+        }
+        
     }
     catch(e)
     {
@@ -201,3 +210,30 @@ const postLovelyMovie = async (data)=>{
     return true;
 }
 
+// Delete Movie Fetching:
+const DeleteMovie = async (movie)=>{
+    let res = await fetch('/love',{
+        method:'DELETE',
+        headers: header,
+        credentials:'same-origin',
+        body: JSON.stringify(movie),
+    });
+    console.log('res',{res});
+    
+    if(res.status === 301)
+    {
+        await getRefreshTocken()
+        
+        console.log('newHeader:',header.get('Authorization'))  
+        DeleteMovie(movie);
+    }
+
+    try{
+              
+        console.log('Perfecto')
+    }
+    catch(e)
+    {
+        console.error(`You are't log in, or your Access tocken is finneshed`,e);
+    }
+}
