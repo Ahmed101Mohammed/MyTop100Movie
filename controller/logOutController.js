@@ -24,7 +24,7 @@ const handelLogOut = async(req,res)=>{
         console.log({user})
         user.save()
         .catch((e)=>{
-            res.sendStatus(301).json({dataBaseError:e})
+            res.sendStatus(301);
         });
         
     });

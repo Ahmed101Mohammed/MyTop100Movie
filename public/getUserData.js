@@ -1,5 +1,5 @@
 getUserData('/mylst',header);
-
+let logOutB = document.querySelector('.logout');//out button
 // Generate Movies
 const genarateMovies = (data)=>{
     let httpStart = 'https://image.tmdb.org/t/p/w500';
@@ -44,7 +44,11 @@ const addHeart = (d)=>{
         if (heartIcons[i].classList.contains('favourite')) {
             let movie = searchMovie(data,heartIcons[i].id);
             console.log('delete Movie',movie);
-            await DeleteMovie(movie);
+            let complate = await DeleteMovie(movie);
+            if(!complate)
+            {
+                return;
+            }
             heartIcons[i].classList.remove('favourite');
             heartIcons[i].classList.add('not-fav');
             
@@ -53,6 +57,10 @@ const addHeart = (d)=>{
     }
 } 
 
+let removeAll = ()=>{
+    let sectionBody = document.querySelector('.section-body');
+    sectionBody.innerHTML = '<p> You should sign in from the home page </p>';
+}
 // search about movie by id
 let searchMovie = (movieList,id)=>{
     
@@ -64,3 +72,10 @@ let searchMovie = (movieList,id)=>{
         }
     }
 }
+
+
+// loge out:
+logOutB.addEventListener('click',async()=>{
+    await logOut();
+    removeAll();
+  })

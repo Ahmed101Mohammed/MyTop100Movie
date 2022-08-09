@@ -219,7 +219,10 @@ const DeleteMovie = async (movie)=>{
         body: JSON.stringify(movie),
     });
     console.log('res',{res});
-    
+    if(res.status === 404)
+    {
+        return false;
+    }
     if(res.status === 301)
     {
         await getRefreshTocken()
@@ -235,5 +238,29 @@ const DeleteMovie = async (movie)=>{
     catch(e)
     {
         console.error(`You are't log in, or your Access tocken is finneshed`,e);
+    }
+}
+
+// LogOut fetching:
+const logOut = async()=>{
+    let res = await fetch('/logOut',{headers:header});
+
+    try
+    {
+        if(res.status === 200)
+        {
+            console.log('Now you are out');
+            localStorage.clear();
+            header.delete('Authorization');
+            
+        }
+        else
+        {
+            console.error('You still here!!')
+        }
+    }
+    catch(e)
+    {
+        console.error(e);
     }
 }

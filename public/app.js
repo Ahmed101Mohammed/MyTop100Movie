@@ -1,4 +1,4 @@
-
+let logOutB = document.querySelector('.logout');
 //The url of TMDB:
 let url = 'https://api.themoviedb.org/3';
 
@@ -62,10 +62,10 @@ const search = (obj,arr)=>{
 }
 
 // get all data:
-const getAll = (url,discoversLinks,key)=>{
+const getAll = async (url,discoversLinks,key)=>{
     for(let i of discoversLinks)
     {
-        getMovies(url,i,key);
+       await getMovies(url,i,key);
     }
 }
 
@@ -116,7 +116,11 @@ const addHeart = (d)=>{
 
             let movie = searchMovie(data,heartIcons[i].id);
             console.log('delete Movie',movie);
-            await DeleteMovie(movie);
+            let complate = await DeleteMovie(movie);
+            if(!complate)
+            {
+                return;
+            }
             heartIcons[i].classList.remove('favourite');
             heartIcons[i].classList.add('not-fav');
 
@@ -175,3 +179,9 @@ let searchMovieTitle = (movieList,title)=>{
     }
     return false;
 }
+
+// loge out:
+logOutB.addEventListener('click',async()=>{
+    await logOut();
+    await getAll(url,discoversLinks,key);
+  })
